@@ -15,24 +15,33 @@
       line-height: 1.6;
     }
 
+    .hero {
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(52, 101, 78, 0.5) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 90%, rgba(38, 80, 115, 0.45) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 20%, rgba(107, 155, 127, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 10% 30%, rgba(74, 124, 160, 0.35) 0%, transparent 45%),
+        linear-gradient(170deg, #2c5f4a 0%, #3a7d6e 25%, #4a8fa8 55%, #2e5f82 100%);
+      padding-bottom: 2.5rem;
+    }
+
     nav {
       display: flex;
       gap: 1.5rem;
       padding: 1.25rem 2rem;
-      border-bottom: 1px solid #eee;
     }
 
     nav a {
       text-decoration: none;
-      color: #111;
+      color: rgba(255,255,255,0.85);
       font-size: 0.95rem;
     }
 
-    nav a:hover { text-decoration: underline; }
+    nav a:hover { color: #fff; text-decoration: underline; }
 
     main {
       max-width: 640px;
-      margin: 3rem auto;
+      margin: 0 auto;
       padding: 0 1.5rem;
     }
 
@@ -40,7 +49,18 @@
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      margin-bottom: 2.5rem;
+      padding: 1.5rem 0 0;
+      margin-bottom: 0;
+    }
+
+    .profile h1 { color: #fff; }
+    .profile > div > p { color: rgba(255,255,255,0.75) !important; }
+
+    .content {
+      background: #fff;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
     }
 
     .profile img {
@@ -96,20 +116,23 @@
 </head>
 <body>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="https://www.linkedin.com/in/thomas-griffin/" target="_blank">LinkedIn</a>
-  </nav>
-
-  <main>
-    <div class="profile">
-      <img src="website-headshot.png" alt="Tom Griffin" />
-      <div>
-        <h1>Tom Griffin</h1>
-        <p>Your one-line bio goes here.</p>
+  <div class="hero">
+    <nav>
+      <a href="#">Home</a>
+      <a href="https://www.linkedin.com/in/thomas-griffin/" target="_blank">LinkedIn</a>
+    </nav>
+    <main>
+      <div class="profile">
+        <img src="website-headshot.png" alt="Tom Griffin" />
+        <div>
+          <h1>Tom Griffin</h1>
+          <p>Your one-line bio goes here.</p>
+        </div>
       </div>
-    </div>
+    </main>
+  </div>
 
+  <div class="content">
     <section>
       <h2>What I'm Up To</h2>
       <p>I work with health &amp; wellness startups in two ways:</p>
@@ -121,7 +144,7 @@
       <h2>Background</h2>
       <p>A few sentences about who you are, where you've been, and what you care about.</p>
     </section>
-  </main>
+  </div>
 
 </body>
 </html>
