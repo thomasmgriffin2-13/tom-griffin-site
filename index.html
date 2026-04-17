@@ -16,9 +16,8 @@
     }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-                  url('hero-landscape.jpg') center center / cover no-repeat;
-      padding-bottom: 2.5rem;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                  url('hero-landscape.jpg') center 40% / cover no-repeat;
     }
 
     nav {
@@ -29,7 +28,7 @@
 
     nav a {
       text-decoration: none;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
       font-size: 0.95rem;
     }
 
@@ -45,12 +44,8 @@
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      padding: 1.5rem 0 0;
-      margin-bottom: 0;
+      margin-bottom: 2.5rem;
     }
-
-    .profile h1 { color: #fff; }
-    .profile > div > p { color: rgba(255,255,255,0.75) !important; }
 
     .content {
       background: #fff;
@@ -117,18 +112,16 @@
       <a href="#">Home</a>
       <a href="https://www.linkedin.com/in/thomas-griffin/" target="_blank">LinkedIn</a>
     </nav>
-    <main>
-      <div class="profile">
-        <img src="website-headshot.png" alt="Tom Griffin" />
-        <div>
-          <h1>Tom Griffin</h1>
-          <p>Your one-line bio goes here.</p>
-        </div>
-      </div>
-    </main>
   </div>
 
   <div class="content">
+    <div class="profile">
+      <img src="website-headshot.png" alt="Tom Griffin" />
+      <div>
+        <h1>Tom Griffin</h1>
+        <p>Your one-line bio goes here.</p>
+      </div>
+    </div>
     <section>
       <h2>What I'm Up To</h2>
       <p>I work with health &amp; wellness startups in two ways:</p>
