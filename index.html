@@ -55,12 +55,21 @@
       padding: 2.5rem 1.5rem;
     }
 
-    .profile img {
+    .profile-img-wrap {
       width: 120px;
       height: 120px;
       border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      outline: 1.5px solid #111;
+      outline-offset: 3px;
+    }
+
+    .profile img {
+      width: 118%;
+      height: 118%;
       object-fit: cover;
-      background: #ddd;
+      margin: -9%;
     }
 
     .profile-placeholder {
@@ -119,10 +128,12 @@
 
   <div class="content">
     <div class="profile">
-      <img src="website-headshot.png" alt="Tom Griffin" />
+      <div class="profile-img-wrap">
+        <img src="website-headshot.png" alt="Thomas Griffin" />
+      </div>
       <div>
         <h1>Tom Griffin</h1>
-        <p>Your one-line bio goes here.</p>
+        <p>thomasmgriffin2@gmail.com // <a href="https://www.linkedin.com/in/thomas-griffin/" target="_blank">LinkedIn</a></p>
       </div>
     </div>
     <section>
@@ -137,11 +148,6 @@
       <p>A few sentences about who you are, where you've been, and what you care about.</p>
     </section>
 
-    <section>
-      <h2>Connect</h2>
-      <p><a href="https://www.linkedin.com/in/thomas-griffin/" target="_blank">LinkedIn</a></p>
-      <p><a href="mailto:thomasmgriffin2@gmail.com">thomasmgriffin2@gmail.com</a></p>
-    </section>
   </div>
 
 </body>
