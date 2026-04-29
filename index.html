@@ -10,8 +10,8 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(ellipse at top right, rgba(180, 220, 200, 0.2) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom left, rgba(160, 210, 230, 0.18) 0%, transparent 45%),
+        radial-gradient(ellipse at top right, rgba(46, 139, 101, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at bottom left, rgba(160, 210, 230, 0.25) 0%, transparent 50%),
         #ffffff;
       background-attachment: fixed;
       color: #111;
@@ -19,65 +19,56 @@
       line-height: 1.6;
     }
 
-    .hero {
-      height: 110px;
-      background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
-                  url('hero-landscape.jpg') center 43% / cover no-repeat;
-      filter: saturate(0.7);
-    }
-
-    main {
-      max-width: 640px;
+    .content {
+      background: transparent;
+      max-width: 725px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 4rem 1.5rem 3rem;
     }
 
-    .profile {
+    .site-header {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
       gap: 1.5rem;
       margin-bottom: 2.5rem;
     }
 
-    .content {
-      background: transparent;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 0.5rem;
+    .header-text h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
     }
 
-    .profile-img-wrap {
-      width: 120px;
-      height: 120px;
+    .header-text p {
+      color: #777;
+      font-size: 0.92rem;
+    }
+
+    .header-text p a {
+      color: #777;
+      text-decoration: underline;
+    }
+
+    .header-text p a:hover { color: #111; }
+
+    .header-photo {
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
+      margin-left: 4rem;
     }
 
-    .profile img {
+    .header-photo img {
       width: 118%;
       height: 118%;
       object-fit: cover;
       margin: -9%;
     }
-
-    .profile h1 {
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-
-    .profile p {
-      color: #555;
-      font-size: 0.95rem;
-      margin-top: 0.2rem;
-    }
-
-    .profile p a {
-      color: #555;
-      text-decoration: underline;
-    }
-
-    .profile p a:hover { color: #111; }
 
     section { margin-bottom: 2.5rem; }
 
@@ -99,7 +90,7 @@
 
     section strong {
       font-weight: 600;
-      color: #0a7075;
+      color: #2E8B65;
     }
 
     section a {
@@ -109,32 +100,118 @@
 
     section a:hover { color: #555; }
 
+    .journey { margin-bottom: 2.5rem; }
+
+    .journey h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #999;
+    }
+
+    .journey-entry {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 0 1.25rem;
+      padding: 0.75rem 0;
+    }
+
+    .journey-year {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #2E8B65;
+      padding-top: 0.1rem;
+    }
+
+    .journey-body {
+      border-left: 2px solid #eee;
+      padding-left: 1.25rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .journey-entry:hover .journey-body { border-left-color: #2E8B65; }
+
+    .journey-role {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .journey-tag {
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-top: 0.1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .journey-desc {
+      font-size: 0.92rem;
+      color: #666;
+      margin-top: 0.35rem;
+    }
+
   </style>
 </head>
 <body>
 
-  <div class="hero"></div>
-
   <div class="content">
-    <div class="profile">
-      <div class="profile-img-wrap">
-        <img src="website-headshot.png" alt="Thomas Griffin" />
-      </div>
-      <div>
+    <header class="site-header">
+      <div class="header-text">
         <h1>Tom Griffin</h1>
         <p>thomasmgriffin2@gmail.com // <a href="https://www.linkedin.com/in/thomas-griffin/" target="_blank">LinkedIn</a></p>
       </div>
-    </div>
+      <div class="header-photo">
+        <img src="website-headshot.png" alt="Thomas Griffin" />
+      </div>
+    </header>
+
     <section>
       <p>I help founders and creators build <strong>movements</strong> through <strong>thought leadership</strong>.</p>
       <p>The work has two components:</p>
       <p><strong>1) Narrative</strong> – developing a worldview that is non-obvious, high-stakes, and actionable</p>
-      <p><strong>2) Amplification</strong> – spreading that worldview through the new media channels that shape culture</p>
+      <p><strong>2) Amplification</strong> – spreading that worldview through the media that shapes culture</p>
       <p>I work exclusively with individuals who are introducing <strong>new paradigms</strong> to the general public – <em>new product categories, new research, new frameworks for living</em> – with a focus on health, wellness, and human potential.</p>
       <p>The most public place I've done this work was with <strong>Dr. Casey Means</strong>, #1 NYT best-selling author, co-founder of Levels, and current nominee for U.S. Surgeon General. As the first marketing hire at Levels, I led the initiative to go from 0 online presence to a national thought leader through securing 100 podcast appearances in 6 months. Here's a <a href="https://review.firstround.com/the-playbook-this-startup-used-to-get-their-founders-on-100--podcasts-in-6-months/" target="_blank">First Round Review feature</a> that I wrote 4 years ago detailing the process.</p>
       <p>I've worked with over 200 podcasts spanning tens of millions listeners.</p>
       <p>On the side, I do select 1:1 coaching and advising to founders and marketing leaders.</p>
     </section>
+
+    <div class="journey">
+      <h2>Journey</h2>
+      <div class="journey-entry">
+        <div class="journey-year">NOW</div>
+        <div class="journey-body">
+          <div class="journey-role">Advising & Consulting</div>
+          <div class="journey-tag">consumer health & human development</div>
+          <div class="journey-desc">Helping founders and thought leaders introduce new paradigms to the world</div>
+        </div>
+      </div>
+      <div class="journey-entry">
+        <div class="journey-year">2020</div>
+        <div class="journey-body">
+          <div class="journey-role">Levels</div>
+          <div class="journey-tag">a16z consumer health</div>
+          <div class="journey-desc">First growth hire, 0-$50M via founder marketing, earned media, and creator partners</div>
+        </div>
+      </div>
+      <div class="journey-entry">
+        <div class="journey-year">2018</div>
+        <div class="journey-body">
+          <div class="journey-role">Halo Neuroscience</div>
+          <div class="journey-tag">a16z consumer health</div>
+          <div class="journey-desc">Creator, partner, and founder marketing for a16z-backed neurotech startup</div>
+        </div>
+      </div>
+      <div class="journey-entry">
+        <div class="journey-year">2014</div>
+        <div class="journey-body">
+          <div class="journey-role">Venture for America</div>
+          <div class="journey-desc">Helped scale national entrepreneurship program under Andrew Yang</div>
+        </div>
+      </div>
+    </div>
 
   </div>
 
