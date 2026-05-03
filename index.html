@@ -341,6 +341,17 @@
       track.style.transform = `translateX(-${idx * step}px)`;
     }
 
+    function advance() {
+      const v = visible();
+      idx = idx >= imgs.length - v ? 0 : idx + 1;
+      update();
+    }
+
+    let timer = setInterval(advance, 2000);
+
+    viewport.addEventListener('mouseenter', () => clearInterval(timer));
+    viewport.addEventListener('mouseleave', () => { timer = setInterval(advance, 2000); });
+
     prevBtn.addEventListener('click', () => { const v = visible(); idx = idx <= 0 ? imgs.length - v : Math.max(0, idx - 3); update(); });
     nextBtn.addEventListener('click', () => { const v = visible(); idx = idx >= imgs.length - v ? 0 : idx + 3; update(); });
     window.addEventListener('resize', init);
