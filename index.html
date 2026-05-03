@@ -112,22 +112,24 @@
       color: #999;
     }
 
-    .carousel-outer {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
     .carousel-viewport {
       overflow: hidden;
-      flex: 1;
-      min-width: 0;
+      width: 100%;
     }
 
     .carousel-track {
       display: flex;
       gap: 4px;
-      transition: transform 0.3s ease;
+      animation: marquee 40s linear infinite;
+    }
+
+    .carousel-viewport:hover .carousel-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .carousel-track img {
@@ -136,25 +138,6 @@
       object-fit: cover;
       border-radius: 3px;
     }
-
-    .carousel-btn {
-      flex-shrink: 0;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      border: 1px solid #ddd;
-      background: white;
-      cursor: pointer;
-      font-size: 0.9rem;
-      color: #666;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .carousel-btn:hover { border-color: #999; color: #111; }
-    .carousel-btn:disabled { opacity: 0.3; cursor: default; }
 
     .journey { margin-bottom: 2.5rem; }
 
@@ -271,9 +254,7 @@
 
     <div class="carousel-section">
       <h2>Network</h2>
-      <div class="carousel-outer">
-        <button class="carousel-btn prev" aria-label="Previous">&#8592;</button>
-        <div class="carousel-viewport">
+      <div class="carousel-viewport">
           <div class="carousel-track">
             <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/9a/d3/19/9ad31912-0b5a-a16e-2d7c-9fd074698b9c/mza_8994222203629500925.jpg/600x600bb.jpg" alt="Huberman Lab" />
             <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts126/v4/18/39/b4/1839b420-7aff-c501-5d0d-af2842fba013/mza_6255154260686997849.jpeg/600x600bb.jpg" alt="The Tim Ferriss Show" />
@@ -304,8 +285,6 @@
             <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/c7/80/a3/c780a365-a1ed-527f-365f-1bd3e51ac6d1/mza_5908526734339724450.jpg/600x600bb.jpg" alt="Lenny's Podcast" />
             <img src="minimalists.png" alt="The Minimalists" />
           </div>
-        </div>
-        <button class="carousel-btn next" aria-label="Next">&#8594;</button>
       </div>
     </div>
 
@@ -315,10 +294,6 @@
     const GAP = 4;
     const track = document.querySelector('.carousel-track');
     const viewport = document.querySelector('.carousel-viewport');
-    const imgs = track.querySelectorAll('img');
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
-    let idx = 0;
 
     function visible() {
       return window.innerWidth < 600 ? 5 : 7;
@@ -331,29 +306,12 @@
 
     function init() {
       const w = imgWidth();
-      imgs.forEach(img => img.style.width = w + 'px');
-      idx = 0;
-      update();
+      track.querySelectorAll('img').forEach(img => img.style.width = w + 'px');
     }
 
-    function update() {
-      const step = imgWidth() + GAP;
-      track.style.transform = `translateX(-${idx * step}px)`;
-    }
+    // Clone images for seamless loop
+    Array.from(track.querySelectorAll('img')).forEach(img => track.appendChild(img.cloneNode(true)));
 
-    function advance() {
-      const v = visible();
-      idx = idx >= imgs.length - v ? 0 : idx + 1;
-      update();
-    }
-
-    let timer = setInterval(advance, 2000);
-
-    viewport.addEventListener('mouseenter', () => clearInterval(timer));
-    viewport.addEventListener('mouseleave', () => { timer = setInterval(advance, 2000); });
-
-    prevBtn.addEventListener('click', () => { const v = visible(); idx = idx <= 0 ? imgs.length - v : Math.max(0, idx - 3); update(); });
-    nextBtn.addEventListener('click', () => { const v = visible(); idx = idx >= imgs.length - v ? 0 : idx + 3; update(); });
     window.addEventListener('resize', init);
     init();
   </script>
