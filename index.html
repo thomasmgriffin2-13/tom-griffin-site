@@ -31,14 +31,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 1.5rem;
-      padding-bottom: 0.6rem;
-      margin-bottom: 1.75rem;
-      border-bottom: 1px solid #111;
+      margin-bottom: 2rem;
     }
 
     .top-bar-name {
       font-size: 1.75rem;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: -0.02em;
       color: #111;
     }
@@ -59,6 +57,59 @@
     }
 
     .top-bar-contact a:hover { text-decoration: underline; }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .site-nav-line {
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
+
+    .site-nav-links {
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .site-nav-links a {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #999;
+      text-decoration: none;
+      padding-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .site-nav-links a:hover { color: #111; }
+
+    .site-nav-links a.active { color: #111; }
+
+    .site-nav-links a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: #111;
+    }
+
+    .headline {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.65rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: #111;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
 
     section { margin-bottom: 2.5rem; }
 
@@ -128,62 +179,6 @@
       border-radius: 3px;
     }
 
-    .journey { margin-bottom: 2.5rem; }
-
-    .journey h2 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #999;
-    }
-
-    .journey-entry {
-      display: grid;
-      grid-template-columns: 3.5rem 1fr;
-      gap: 0 1.25rem;
-      padding: 0.75rem 0;
-    }
-
-    .journey-year {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #2E8B65;
-      padding-top: 0.1rem;
-    }
-
-    .journey-body {
-      border-left: 2px solid #eee;
-      padding-left: 1.25rem;
-      transition: border-color 0.2s ease;
-    }
-
-    .journey-entry:hover .journey-body { border-left-color: #2E8B65; }
-
-    .journey-entry--current .journey-year { color: #2E8E66; }
-    .journey-entry--past .journey-year { color: #3568B5; }
-    .journey-entry--past:hover .journey-body { border-left-color: #3568B5; }
-
-    .journey-role {
-      font-size: 0.97rem;
-      font-weight: 600;
-      color: #111;
-    }
-
-    .journey-tag {
-      font-size: 0.8rem;
-      color: #aaa;
-      margin-top: 0.1rem;
-      letter-spacing: 0.02em;
-    }
-
-    .journey-desc {
-      font-size: 0.92rem;
-      color: #666;
-      margin-top: 0.35rem;
-    }
-
   </style>
 </head>
 <body>
@@ -197,8 +192,20 @@
       </div>
     </header>
 
-    <section>
-      <p>I partner with the world's most interesting thinkers, and help turn their ideas into movements.</p>
+    <nav class="site-nav">
+      <span class="site-nav-line"></span>
+      <div class="site-nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="case-studies.html">Case Studies</a>
+      </div>
+      <span class="site-nav-line"></span>
+    </nav>
+
+    <p class="headline">Go-to-market for the people and ideas shaping the future of human potential.</p>
+
+    <section id="home">
+      <p>I help founders and thought leaders amplify their ideas through the podcasts, creators, and media that shape culture.</p>
       <p>The work has two components:</p>
       <p>1. Positioning – refining a thesis that is non-obvious, high-stakes, and actionable</p>
       <p>2. Distribution – amplifying it via the podcasts, creators, and media that shape culture</p>
@@ -207,42 +214,7 @@
       <p>I've worked with over 200 podcasts and creators spanning tens of millions listeners.</p>
     </section>
 
-    <div class="journey">
-      <h2>Journey</h2>
-      <div class="journey-entry journey-entry--current">
-        <div class="journey-year">Now</div>
-        <div class="journey-body">
-          <div class="journey-role">Advising & Consulting</div>
-          <div class="journey-tag">consumer health & human development</div>
-          <div class="journey-desc">Helping founders and thought leaders introduce new paradigms to the world</div>
-        </div>
-      </div>
-      <div class="journey-entry journey-entry--past">
-        <div class="journey-year">2020</div>
-        <div class="journey-body">
-          <div class="journey-role">Levels</div>
-          <div class="journey-tag">a16z consumer health</div>
-          <div class="journey-desc">First growth hire, 0-$50M via founder marketing, earned media, and creator partners</div>
-        </div>
-      </div>
-      <div class="journey-entry journey-entry--past">
-        <div class="journey-year">2018</div>
-        <div class="journey-body">
-          <div class="journey-role">Halo Neuroscience</div>
-          <div class="journey-tag">a16z consumer health</div>
-          <div class="journey-desc">Creator, partner, and founder marketing for category-creating neurotech product</div>
-        </div>
-      </div>
-      <div class="journey-entry journey-entry--past">
-        <div class="journey-year">2014</div>
-        <div class="journey-body">
-          <div class="journey-role">Venture for America</div>
-          <div class="journey-desc">Helped scale national entrepreneurship program under Andrew Yang</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="carousel-section">
+    <div class="carousel-section" id="network">
       <h2>Network</h2>
       <div class="carousel-viewport">
           <div class="carousel-track">
